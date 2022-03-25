@@ -18,6 +18,7 @@ public class Main {
         System.out.println("В банкомате " + totalAvailable + "  сом.");
         System.out.println("Введите желаемую сумму...");
         int withdraw = scanner.nextInt();
+        int saveWithdraw = withdraw;
 
         if (totalAvailable < withdraw) {
             System.out.println("Недостаточно средств в банкомате.");
@@ -28,7 +29,6 @@ public class Main {
                     countOfBanknotes = withdraw / banknotes[i];
                     if (countOfBanknotes <= quantities[i]) {
                         result += countOfBanknotes + "x" + banknotes[i] + " ";
-                        System.out.println(result);
                         quantities[i] -= countOfBanknotes;
                         totalAvailable -= countOfBanknotes * banknotes[i];
                         withdraw -= countOfBanknotes * banknotes[i];
@@ -46,6 +46,7 @@ public class Main {
 
             if (withdraw == 0) {
                 System.out.println("Вы получили " + result);
+                System.out.println("Всего " + saveWithdraw + ".");
             } else {
                 System.out.println("Недостаточно средств в банкомате, " +
                         "запрашиваемая сумма не может быть выдана.");
